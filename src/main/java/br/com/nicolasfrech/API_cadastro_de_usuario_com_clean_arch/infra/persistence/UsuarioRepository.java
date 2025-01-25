@@ -3,4 +3,5 @@ package br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persist
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
+    UsuarioEntity findByNome(String nome);
 }

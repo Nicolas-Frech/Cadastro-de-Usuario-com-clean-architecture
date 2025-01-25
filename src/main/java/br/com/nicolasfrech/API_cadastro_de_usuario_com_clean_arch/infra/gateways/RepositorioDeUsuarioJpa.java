@@ -6,6 +6,7 @@ import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persiste
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persistence.UsuarioRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class RepositorioDeUsuarioJpa implements RepositorioDeUsuario {
@@ -30,5 +31,16 @@ public class RepositorioDeUsuarioJpa implements RepositorioDeUsuario {
     public List<Usuario> listarTodos() {
         return repository.findAll().stream()
                 .map(mapper::toDomain).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deletarUsuario(Long id) {
+        Optional<UsuarioEntity> usuario = repository.findById(id);
+        if(usuario.isPresent()) {
+            repository.delete(usuario.get());
+        }
+        else {
+            throw new RuntimeException("Não há usuários com esse ID!");
+        }
     }
 }

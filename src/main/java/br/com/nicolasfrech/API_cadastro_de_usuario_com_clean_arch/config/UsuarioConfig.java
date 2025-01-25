@@ -2,6 +2,7 @@ package br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.config;
 
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.application.gateways.RepositorioDeUsuario;
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.application.usecases.CriarUsuario;
+import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.application.usecases.DeletarUsuario;
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.application.usecases.ListarUsuarios;
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.gateways.RepositorioDeUsuarioJpa;
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.gateways.UsuarioEntityMapper;
@@ -30,5 +31,10 @@ public class UsuarioConfig {
     @Bean
     ListarUsuarios listarUsuarios(RepositorioDeUsuario repositorioDeUsuario) {
         return new ListarUsuarios((repositorioDeUsuario));
+    }
+
+    @Bean
+    DeletarUsuario deletarUsuario(RepositorioDeUsuario repositorioDeUsuario) {
+        return  new DeletarUsuario(repositorioDeUsuario);
     }
 }

@@ -9,4 +9,6 @@ public interface RepositorioDeUsuario {
     Usuario cadastrarUsuario(Usuario usuario);
 
     List<Usuario> listarTodos();
+
+    void deletarUsuario(Long id);
 }
