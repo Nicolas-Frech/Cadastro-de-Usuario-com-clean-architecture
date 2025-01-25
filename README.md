@@ -1,4 +1,4 @@
-<b>Projeto de API para Cadastro de Usuários seguindo padrões da Clean Architecture!</b>
+<b>Projeto de API para Cadastro e Listagem de Usuários seguindo padrões da Clean Architecture!</b>
 
 Alguns desses padrões são:
 - <b>Independência de Framework:</b>
