@@ -1,16 +1,10 @@
 package br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persistence;
 
 import jakarta.persistence.*;
-import lombok.*;
-
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuarios")
-@Getter
-@Setter
-@NoArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class UsuarioEntity {
 
     @Id
@@ -21,10 +15,52 @@ public class UsuarioEntity {
     private LocalDate nascimento;
     private String email;
 
+    public UsuarioEntity() {}
+
     public UsuarioEntity(String cpf, String nome, LocalDate nascimento, String email) {
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
 }
