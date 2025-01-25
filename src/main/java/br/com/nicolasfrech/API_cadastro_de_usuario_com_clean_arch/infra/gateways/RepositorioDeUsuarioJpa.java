@@ -6,6 +6,7 @@ import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persiste
 import br.com.nicolasfrech.API_cadastro_de_usuario_com_clean_arch.infra.persistence.UsuarioRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RepositorioDeUsuarioJpa implements RepositorioDeUsuario {
 
@@ -27,6 +28,7 @@ public class RepositorioDeUsuarioJpa implements RepositorioDeUsuario {
 
     @Override
     public List<Usuario> listarTodos() {
-        return null;
+        return repository.findAll().stream()
+                .map(mapper::toDomain).collect(Collectors.toList());
     }
 }
